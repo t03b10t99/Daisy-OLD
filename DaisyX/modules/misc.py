@@ -618,6 +618,10 @@ __help__ = """
  ✪ /markdownhelp: Quick summary of how markdown works in telegram - can only be called in private chats.
  ✪ /removebotkeyboard: Got a nasty bot keyboard stuck in your group?
 
+*➩Telegraph*
+  ✪ /tm :Get Telegraph Link Of Replied Media
+  ✪ /txt :Get Telegraph Link of Replied Text
+
 *➩Info:*
   ✪ /whois: Get information about user using pyrogram  method.
 
