@@ -63,45 +63,47 @@ from DaisyX.modules.helper_funcs.misc import paginate_modules
 from DaisyX.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
-Hello there, I'm [𝓓𝓪𝓲𝓼𝔂 𝓧](https://telegra.ph/file/473cc17913393959e0667.jpg)
-
-I am an 𝐴𝑛𝑖𝑚𝑒 Themed Group Managing Bot and I will help in managing your group
-
-✪ Make sure you read *INFO* Section Below ✪ 
+👋🏻 Hallo, Nama saya [𝗚𝗢𝗛𝗔𝗡](https://telegra.ph/file/f92f5eaa2485ba038f014.jpg)
+🧑🏻‍💻 Dikekolah oleh [ɢᴏᴏᴅ ʙᴏʏs](tg://user?id=964824594)
+┈───────────────────┈
+Saya adalah robot manajemen bertema dragon ball, 
+Saya disini untuk membantu anda untuk mengelolah grup anda dari para pengguna telegram yang meresahkan,
+Dengan jurus super kamehameha saya bisa membasmi mereka semua dengan mudah
+┈───────────────────┈
+☑️ Silahkan klik tombol bantuan dibawah untuk melihat semua fitur-fitur yang saya punya
 """
 
 buttons = [
     [
-        InlineKeyboardButton(text="🚀 INFO 🚀", callback_data="aboutmanu_"),
-    ],
-    [
-        InlineKeyboardButton(text="❓ Help & Commands ❓", callback_data="help_back"),
-    ],
-    [
         InlineKeyboardButton(
-            text="💫 Add Daisy to your group 💫", url="t.me/daisyXBot?startgroup=true"
+            text="💫 Tambahkan 𝗚𝗢𝗛𝗔𝗡 Ke Grup 💫", url="t.me/GohanRobot?startgroup=true"),
+    ],
+    [
+        InlineKeyboardButton(text="⚔️ Bantuan", callback_data="help_back"),
+        InlineKeyboardButton(
+            text="Support 💬", url="t.me/GroupMusicRandom"
         ),
     ],
 ]
 
 
 HELP_STRINGS = f"""
-*Main Commands :* [🤖](https://telegra.ph/file/473cc17913393959e0667.jpg)
-✪ /start: Starts me! You've probably already used this.
-✪ /help: Click this, I'll let you know about myself!
-✪ /donate: You can support my creater using this command.
-✪ /settings: 
-   ◔ in PM: will send you your settings for all supported modules.
-   ◔ in a Group: will redirect you to pm, with all that chat's settings.
+*Perintah Utama:* [🤖](https://telegra.ph/file/a63173fa74e370a76decb.jpg)
+✪ /start: Mulai saya! Anda mungkin sudah menggunakan ini.
+✪ /help: Klik ini, saya akan memberi tahu Anda tentang diri saya!
+✪ /donate: Anda dapat mendukung pembuat saya menggunakan perintah ini.
+✪ /settings:
+   ◔ di PM: akan mengirimkan pengaturan Anda untuk semua modul yang didukung.
+   ◔ di Grup: akan mengarahkan Anda ke pm, dengan semua pengaturan obrolan itu.‌‌
 """.format(
     dispatcher.bot.first_name,
-    "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
+    "" if not ALLOW_EXCL else "\nSemua perintah dapat digunakan dengan / atau !.\n",
 )
 
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-You can donate to the original writer's of the Base code,
-Support them  [Inuka](t.me/InukaASiTH),[Jason](t.me/imjanindu),"""
+DONATE_STRING = """Hai Senang Rasanya Anda Mau Berdonasi
+Donasi Pulsa: 089525658633
+Donasi E-Wallet: [SAWERIA](https://saweria.co/FlashSupport]"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -197,7 +199,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text="Kembali", callback_data="help_back")]]
                     ),
                 )
 
@@ -298,7 +300,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "*⚊❮❮❮❮ ｢  Help  for  {}  module 」❯❯❯❯⚊*\n".format(
+                "*⚊❮❮❮❮ ｢  Bantuan untuk  {}  module 」❯❯❯❯⚊*\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -307,7 +309,7 @@ def help_button(update, context):
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="Kembali", callback_data="help_back")]]
                 ),
             )
 
@@ -360,29 +362,26 @@ def DaisyX_about_callback(update, context):
     query = update.callback_query
     if query.data == "aboutmanu_":
         query.message.edit_text(
-            text=f"*😍 Hi again!  The name's {dispatcher.bot.first_name} 😍 \n\nAs  You I'm a next generational group management bot developed by Infinity_Bots.* "
-            f"\n\n 🔥 Join [Infinity_Bots](https://t.me/Infinity_Bots) To Keep Yourself Updated About {dispatcher.bot.first_name} 🔥"
-            f"\n\n I have the normal GROUP MANAGING functions like flood control, a warning system etc but I mainly have the advanced and handy Antispam system and the SIBYL banning system which safegaurds and helps your group from spammers."
-            f"\n\nI Can Manage Your Groups Smoothly, With Some Special Features [:)](https://telegra.ph/file/473cc17913393959e0667.jpg)"
-            f"\n\n👇 You Can Know More About Me By Clicking The Below Buttons 👇",
+            text=f"*😍 Hai kembali, Nama saya {dispatcher.bot.first_name} 😍 \n\nSaya adalah bot manajemen grup generasi berikutnya yang dikembangkan oleh [ɢᴏᴏᴅ ʙᴏʏs](tg://user?id=964824594)* "
+            f"\n\n 🔥 Join [Group Music Random](https://t.me/GroupMusicRandom) Untuk Menjaga Diri Anda Diperbarui Tentang {dispatcher.bot.first_name} 🔥"
+            f"\n\n Saya memiliki fungsi GROUP MANAGER yang normal seperti pengendalian spam, sistem peringatan dll, tetapi saya terutama memiliki sistem Antispam yang canggih dan praktis serta sistem pelarangan yang melindungi dan membantu grup Anda dari spammer.‌‌"
+            f"\n\nSaya Dapat Mengelola Grup Anda dengan Lancar, Dengan Beberapa Fitur Khusus [:)](https://telegra.ph/file/752f9564062a06efed512.jpg)"
+            f"\n\n👇 Kamu bisa klik di bawah untuk cara penggunaan  👇",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="How To Use Me", callback_data="aboutmanu_howto"
-                        ),
-                        InlineKeyboardButton(
-                            text="T & C", callback_data="aboutmanu_tac"
+                            text="📝 Cara Menggunakan 📝", callback_data="aboutmanu_howto"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            text="❔Help & Commands", callback_data="help_back"
+                            text="❔ Bantuan & Perintah ❔", callback_data="help_back"
                         )
                     ],
-                    [InlineKeyboardButton(text="Back", callback_data="aboutmanu_back")],
+                    [InlineKeyboardButton(text="Kembali", callback_data="aboutmanu_back")],
                 ]
             ),
         )
@@ -397,8 +396,8 @@ def DaisyX_about_callback(update, context):
     elif query.data == "aboutmanu_howto":
         query.message.edit_text(
             text=f"* ｢ BASIC HELP 」*"
-            f"\nIf You Can Also Add {dispatcher.bot.first_name} To Your Chats By Clicking [Here](http://t.me/{dispatcher.bot.username}?startgroup=true) And Selecting Chat. \n"
-            f"\n\nYou Can get support {dispatcher.bot.first_name} by joining [InfinityJE](https://t.me/infinityje).\n"
+            f"\n Jika Anda Juga Dapat Menambahkan {dispatcher.bot.first_name} Ke Obrolan Anda Dengan Mengklik [Disini](http://t.me/{dispatcher.bot.username}?startgroup=true) Dan Memilih Obrolan. \n"
+            f"\n\n Anda bisa mendapatkan dukungan {dispatcher.bot.first_name} dengan bergabung [Group Music Random](https://t.me/GroupMusicRandom).\n"
             f"",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -412,7 +411,7 @@ def DaisyX_about_callback(update, context):
                             text="Anti Spam", callback_data="aboutmanu_spamprot"
                         ),
                     ],
-                    [InlineKeyboardButton(text="Back", callback_data="aboutmanu_")],
+                    [InlineKeyboardButton(text="Kembali", callback_data="aboutmanu_")],
                 ]
             ),
         )
@@ -510,12 +509,12 @@ def get_help(update, context):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             update.effective_message.reply_text(
-                f"Contact me in PM to get help of {module.capitalize()}",
+                f"Hubungi saya di PM untuk mendapatkan bantuan {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                text="Help",
+                                text="Bantuan",
                                 url="t.me/{}?start=ghelp_{}".format(
                                     context.bot.username, module
                                 ),
@@ -531,7 +530,7 @@ def get_help(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Help",
+                            text="Bantuan",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
                     ],
@@ -549,7 +548,7 @@ def get_help(update, context):
     elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
         module = args[1].lower()
         text = (
-            "Here is the available help for the *{}* module:\n".format(
+            "Berikut adalah bantuan yang tersedia untuk *{}* module:\n".format(
                 HELPABLE[module].__mod_name__
             )
             + HELPABLE[module].__help__
@@ -558,7 +557,7 @@ def get_help(update, context):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="Kembali", callback_data="help_back")]]
             ),
         )
 
@@ -591,7 +590,7 @@ def send_settings(chat_id, user_id, user=False):
             chat_name = dispatcher.bot.getChat(chat_id).title
             dispatcher.bot.send_message(
                 user_id,
-                text="Which module would you like to check {}'s settings for?".format(
+                text="Modul mana yang ingin Anda periksa {}'s pengaturan untuk?".format(
                     chat_name
                 ),
                 reply_markup=InlineKeyboardMarkup(
@@ -601,8 +600,8 @@ def send_settings(chat_id, user_id, user=False):
         else:
             dispatcher.bot.send_message(
                 user_id,
-                "Seems like there aren't any chat settings available :'(\nSend this "
-                "in a group chat you're admin in to find its current settings!",
+                "Sepertinya tidak ada pengaturan obrolan yang tersedia :'(\nKirim ini "
+                "dalam obrolan grup tempat Anda menjadi admin untuk menemukan pengaturannya saat ini!",
                 parse_mode=ParseMode.MARKDOWN,
             )
 
@@ -630,7 +629,7 @@ def settings_button(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Back",
+                                text="Kembali",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -643,8 +642,8 @@ def settings_button(update, context):
             curr_page = int(prev_match.group(2))
             chat = context.bot.get_chat(chat_id)
             query.message.edit_text(
-                "Hi there! There are quite a few settings for *{}* - go ahead and pick what "
-                "you're interested in.".format(chat.title),
+                "Halo! Ada beberapa pengaturan untuk *{}* - pergi ke depan dan memilih apa "
+                "kamu tertarik.".format(chat.title),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -658,8 +657,8 @@ def settings_button(update, context):
             next_page = int(next_match.group(2))
             chat = context.bot.get_chat(chat_id)
             query.message.edit_text(
-                "Hi there! There are quite a few settings for *{}* - go ahead and pick what "
-                "you're interested in.".format(chat.title),
+                "Halo! Ada beberapa pengaturan untuk *{}* - pergi ke depan dan memilih apa "
+                "kamu tertarik.".format(chat.title),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -672,8 +671,8 @@ def settings_button(update, context):
             chat_id = back_match.group(1)
             chat = context.bot.get_chat(chat_id)
             query.message.edit_text(
-                text="Hi there! There are quite a few settings for *{}* - go ahead and pick what "
-                "you're interested in.".format(escape_markdown(chat.title)),
+                text="Halo! Ada beberapa pengaturan untuk *{}* - pergi ke depan dan memilih apa "
+                "kamu tertarik.".format(escape_markdown(chat.title)),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)
@@ -704,7 +703,7 @@ def get_settings(update: Update, context: CallbackContext):
     # ONLY send settings in PM
     if chat.type != chat.PRIVATE:
         if is_user_admin(chat, user.id):
-            text = "Click here to get this chat's settings, as well as yours."
+            text = "Klik di sini untuk mendapatkan pengaturan obrolan ini, serta pengaturan Anda."
             msg.reply_text(
                 text,
                 reply_markup=InlineKeyboardMarkup(
@@ -791,8 +790,8 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
         update.effective_message.reply_text(
-            "You can also donate to the person currently running me "
-            "[here]({})".format(DONATION_LINK),
+            "Anda juga dapat menyumbang kepada orang yang saat ini menjalankan saya "
+            "[sini]({})".format(DONATION_LINK),
             parse_mode=ParseMode.MARKDOWN,
         )
 
@@ -804,10 +803,10 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I am now online!")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "saya sekarang online!")
         except Unauthorized:
             LOGGER.warning(
-                "Bot isnt able to send message to support_chat, go and check!"
+                "Bot tidak dapat mengirim pesan untuk support_chat, buka dan periksa!"
             )
         except BadRequest as e:
             LOGGER.warning(e.message)
