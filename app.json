@@ -131,7 +131,7 @@
       "URL": {
          "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
          "required": false,
-         "value": ""
+         "value": "https://your_app_name.herokuapp.com/"
       },
       "No_LOAD": {
          "description": "Dont load these modules cause they shit, space separation",
