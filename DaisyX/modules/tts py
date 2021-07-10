@@ -1,0 +1,7 @@
+__mod_name__ = "◎TTS & STT"
+
+__help__ = """
+I can convert text to voice and voice to text..
+ ❍ /tts <text & Reply to any message to get text to speech output*
+ ❍ /stt: Type in reply to a voice message(support en 
+"""
